@@ -86,6 +86,6 @@ switch ($module) {
             exit;
         }
         $_SESSION['last_activity'] = time();
-        include __DIR__ . '/view/dashboard/index.php';
+        include __DIR__ . '/view/dashboard/dashboard.php';
         break;
 }
