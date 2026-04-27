@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Login</h2>
+    <div style="width:100%; display:flex; flex-direction:column; align-items:center; margin-top:20px;">
+        <h2 class="login-header">Sign in to Inventaris</h2>
+        <div class="container login-container" style="margin-top:0;">
         <?php if ($error !== ''): ?>
             <p style="color:red;"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
         <?php endif; ?>
@@ -25,7 +26,10 @@
             </label>
             <button type="submit" class="btn">Masuk</button>
         </form>
-        <p>Belum punya akun? <a href="index.php?module=auth&act=register">Register</a></p>
+        </div>
+        <div style="margin-top:20px; padding:15px 20px; border:1px solid #30363d; border-radius:6px; max-width:340px; width:100%; text-align:center; font-size:14px; background-color:transparent;">
+            New to Inventaris? <a href="index.php?module=auth&act=register">Create an account</a>
+        </div>
     </div>
 </body>
 </html>

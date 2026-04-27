@@ -6,6 +6,12 @@ class User {
         $this->conn = $db;
     }
 
+    /** Hitung total user */
+    public function getCount(): int {
+        $row = $this->conn->query("SELECT COUNT(*) AS total FROM users")->fetch_assoc();
+        return (int)($row['total'] ?? 0);
+    }
+
     /** Ambil semua user */
     public function getAll(): mysqli_result|false {
         return $this->conn->query("SELECT id, name, email FROM users ORDER BY id DESC");

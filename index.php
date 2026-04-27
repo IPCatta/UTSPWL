@@ -51,7 +51,7 @@ switch ($module) {
             case 'store':  $c->store();           break;
             case 'edit':   $c->edit($id ?? 0);   break;
             case 'update': $c->update($id ?? 0); break;
-            case 'delete': $c->delete($id ?? 0); break;
+            case 'delete': $c->delete(); break;
             default:       $c->index();
         }
         break;
@@ -86,6 +86,17 @@ switch ($module) {
             exit;
         }
         $_SESSION['last_activity'] = time();
+
+        // Ambil data ringkasan untuk dashboard
+        require_once __DIR__ . '/config/database.php';
+        require_once __DIR__ . '/model/Barang.php';
+        require_once __DIR__ . '/model/User.php';
+        $db = Database::connect();
+        $barangModel = new Barang($db);
+        $userModel   = new User($db);
+        $summary    = $barangModel->getSummary();
+        $totalUsers = $userModel->getCount();
+
         include __DIR__ . '/view/dashboard/dashboard.php';
         break;
 }

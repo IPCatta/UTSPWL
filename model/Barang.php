@@ -9,6 +9,14 @@ class Barang {
         $this->conn = $db;
     }
 
+    /** Ambil ringkasan untuk dashboard */
+    public function getSummary(): array {
+        $row = $this->conn->query(
+            "SELECT COUNT(*) AS total_items, COALESCE(SUM(stok),0) AS total_stok, COALESCE(SUM(harga),0) AS total_harga FROM products"
+        )->fetch_assoc();
+        return $row ?: ['total_items' => 0, 'total_stok' => 0, 'total_harga' => 0];
+    }
+
     /** Ambil semua barang */
     public function getAll(): mysqli_result|false {
         return $this->conn->query("SELECT * FROM products ORDER BY id DESC");

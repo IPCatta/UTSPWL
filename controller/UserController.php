@@ -109,14 +109,17 @@ class UserController {
 
     // ─── Hapus User ─────────────────────────────────────────────────────────
 
-    public function delete(int $id): void {
+    public function delete(): void {
         $this->requireAuth();
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location: index.php?module=user');
             exit;
         }
-        $model = new User(Database::connect());
-        $model->delete($id);
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id > 0) {
+            $model = new User(Database::connect());
+            $model->delete($id);
+        }
         header('Location: index.php?module=user');
         exit;
     }
