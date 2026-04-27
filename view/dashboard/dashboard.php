@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=1.1">
     <style>
         /* ── Reset & Base ─────────────────────────────────────────────── */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -321,28 +322,28 @@
             </div>
         </div>
 
-        <!-- Quick Menu -->
-        <div class="section-title">Menu Utama</div>
-        <div class="menu-grid">
-            <a href="index.php?module=barang" class="menu-card" id="menu-barang">
-                <div class="menu-icon">📦</div>
-                <div class="menu-label">Manajemen Barang</div>
-                <div class="menu-desc">Kelola produk, stok, dan harga</div>
+        <!-- Quick Menu (Horizontal Layout) -->
+        <div class="section-title">Menu Utama (Horizontal)</div>
+        <div class="menu-grid" style="display: flex; flex-direction: row; gap: 16px; overflow-x: auto; padding-bottom: 15px;">
+            <a href="index.php?module=barang" class="menu-card" style="flex: 1; min-width: 220px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div class="menu-icon" style="background: rgba(9,105,218,0.1); color: #0969da;">📦</div>
+                <div class="menu-label" style="font-weight: 600; font-size: 15px;">Manajemen Barang</div>
+                <div class="menu-desc" style="font-size: 13px; color: #57606a;">Kelola produk, stok, dan harga</div>
             </a>
-            <a href="index.php?module=user" class="menu-card" id="menu-user">
-                <div class="menu-icon">👤</div>
-                <div class="menu-label">Manajemen User</div>
-                <div class="menu-desc">Kelola akun pengguna</div>
+            <a href="index.php?module=user" class="menu-card" style="flex: 1; min-width: 220px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div class="menu-icon" style="background: rgba(45,164,78,0.1); color: #2da44e;">👤</div>
+                <div class="menu-label" style="font-weight: 600; font-size: 15px;">Manajemen User</div>
+                <div class="menu-desc" style="font-size: 13px; color: #57606a;">Kelola akun pengguna</div>
             </a>
-            <a href="index.php?module=user&act=create" class="menu-card" id="menu-add-user">
-                <div class="menu-icon">➕</div>
-                <div class="menu-label">Tambah Pengguna</div>
-                <div class="menu-desc">Buat akun pengguna baru</div>
+            <a href="index.php?module=user&act=create" class="menu-card" style="flex: 1; min-width: 220px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div class="menu-icon" style="background: rgba(191,135,0,0.1); color: #bf8700;">➕</div>
+                <div class="menu-label" style="font-weight: 600; font-size: 15px;">Tambah Pengguna</div>
+                <div class="menu-desc" style="font-size: 13px; color: #57606a;">Buat akun baru</div>
             </a>
-            <a href="index.php?module=auth&act=logout" class="menu-card logout-card" id="menu-logout">
-                <div class="menu-icon">🚪</div>
-                <div class="menu-label">Logout</div>
-                <div class="menu-desc">Keluar dari aplikasi</div>
+            <a href="index.php?module=auth&act=logout" class="menu-card logout-card" style="flex: 1; min-width: 220px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div class="menu-icon" style="background: rgba(207,34,46,0.1); color: #cf222e;">🚪</div>
+                <div class="menu-label" style="font-weight: 600; font-size: 15px;">Logout</div>
+                <div class="menu-desc" style="font-size: 13px; color: #57606a;">Keluar dari aplikasi</div>
             </a>
         </div>
 
