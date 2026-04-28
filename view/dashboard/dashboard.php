@@ -349,6 +349,8 @@
 
         <div class="dash-footer">
             &copy; <?= date('Y') ?> UTSPWL &mdash; Sistem Manajemen Inventaris
+            <br>
+            <strong style="margin-top: 5px; display: inline-block; color: #24292f;">NIM: A12.2024.07267 | Nama: Muhammad Akhtar Behanam Putra</strong>
         </div>
     </div>
 

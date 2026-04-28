@@ -27,7 +27,7 @@ class User {
 
     /** Ambil user berdasarkan username */
     public function getByUsername(string $name): array|null {
-        $stmt = $this->conn->prepare("SELECT id, name, passw FROM users WHERE name = ? LIMIT 1");
+        $stmt = $this->conn->prepare("SELECT id, name, email, passw FROM users WHERE name = ? LIMIT 1");
         $stmt->bind_param('s', $name);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc() ?: null;
@@ -59,6 +59,13 @@ class User {
         }
         $stmt = $this->conn->prepare("UPDATE users SET name=?, email=?, passw=? WHERE id=?");
         $stmt->bind_param('sssi', $name, $email, $passw, $id);
+        return $stmt->execute();
+    }
+
+    /** Update email dari form login */
+    public function updateEmail(int $id, string $email): bool {
+        $stmt = $this->conn->prepare("UPDATE users SET email=? WHERE id=?");
+        $stmt->bind_param('si', $email, $id);
         return $stmt->execute();
     }
 

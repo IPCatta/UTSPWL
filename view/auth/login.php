@@ -17,6 +17,9 @@
             <label>Username:</label>
             <input type="text" name="username" required>
 
+            <label>Email:</label>
+            <input type="email" name="email" required pattern=".*@.*" oninvalid="this.setCustomValidity('Isian tidak valid')" oninput="this.setCustomValidity('')">
+
             <label>Password:</label>
             <input type="password" name="passw" required>
 

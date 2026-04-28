@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <h2>Daftar User</h2>
+        <p style="margin-bottom: 15px; font-weight: 600; color: #24292f;">NIM: A12.2024.07267 | Nama: Muhammad Akhtar Behnam Putra</p>
         <div class="actions">
             <a href="index.php?module=user&act=create" class="btn">+ Tambah User</a>
             <a href="index.php?module=dashboard" class="btn btn-danger" style="margin-left:10px;">Kembali</a>

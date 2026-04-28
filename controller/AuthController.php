@@ -72,10 +72,11 @@ class AuthController {
 
         $error    = '';
         $username = trim($_POST['username'] ?? '');
+        $email    = trim($_POST['email'] ?? '');
         $passw    = (string)($_POST['passw'] ?? '');
 
-        if ($username === '' || $passw === '') {
-            $error = 'Username dan password wajib diisi.';
+        if ($username === '' || $email === '' || $passw === '') {
+            $error = 'Username, email, dan password wajib diisi.';
         } else {
             $model = new User(Database::connect());
             $user  = $model->getByUsername($username);
@@ -88,6 +89,11 @@ class AuthController {
                 $_SESSION['user_id']       = (int)$user['id'];
                 $_SESSION['user_name']     = (string)$user['name'];
                 $_SESSION['last_activity'] = time();
+
+                // Menyimpan data email ke dalam tabel user
+                if ($email !== '' && $email !== ($user['email'] ?? '')) {
+                    $model->updateEmail((int)$user['id'], $email);
+                }
 
                 if (!empty($_POST['remember'])) {
                     $token = $this->makeToken($user);
