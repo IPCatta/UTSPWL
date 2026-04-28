@@ -57,6 +57,12 @@ class BarangController {
             return;
         }
 
+        if (!preg_match('/^[a-zA-Z\s]+$/', $nama)) {
+            $error = 'Nama tidak boleh mengandung angka.';
+            include __DIR__ . '/../view/barang/create.php';
+            return;
+        }
+
         $model  = new Barang(Database::connect());
         $result = $model->insert($nama, $kategori, $stok, $harga, $file);
 
@@ -103,6 +109,14 @@ class BarangController {
         if ($nama === '' || $id <= 0) {
             header('Location: index.php?module=barang');
             exit;
+        }
+
+        if (!preg_match('/^[a-zA-Z\s]+$/', $nama)) {
+            $model  = new Barang(Database::connect());
+            $barang = $model->getById($id);
+            $error = 'Nama tidak boleh mengandung angka.';
+            include __DIR__ . '/../view/barang/edit.php';
+            return;
         }
 
         $model  = new Barang(Database::connect());

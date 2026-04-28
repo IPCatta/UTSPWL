@@ -14,7 +14,7 @@
         <?php endif; ?>
         <form action="index.php?module=barang&act=store" method="POST" enctype="multipart/form-data">
             <label>Nama:</label>
-            <input type="text" name="nama" required>
+            <input type="text" name="nama" required pattern="^[a-zA-Z\s]+$" title="Nama tidak boleh mengandung angka" oninvalid="this.setCustomValidity('Nama tidak boleh mengandung angka')" oninput="this.setCustomValidity('')">
 
             <label>Kategori:</label>
             <input type="text" name="kategori" required>

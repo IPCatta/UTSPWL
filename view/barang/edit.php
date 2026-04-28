@@ -18,7 +18,7 @@
 
             <label>Nama:</label>
             <input type="text" name="nama"
-                   value="<?= htmlspecialchars($barang['nama_produk'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required>
+                   value="<?= htmlspecialchars($barang['nama_produk'] ?? '', ENT_QUOTES, 'UTF-8') ?>" required pattern="^[a-zA-Z\s]+$" title="Nama tidak boleh mengandung angka" oninvalid="this.setCustomValidity('Nama tidak boleh mengandung angka')" oninput="this.setCustomValidity('')">
 
             <label>Kategori:</label>
             <input type="text" name="kategori"
